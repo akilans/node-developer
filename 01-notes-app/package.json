@@ -1,0 +1,21 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "notes cli app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Notes",
+    "app",
+    "by",
+    "nodejs"
+  ],
+  "author": "Akilan",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "validator": "^13.1.17"
+  }
+}
