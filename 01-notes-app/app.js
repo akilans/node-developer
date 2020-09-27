@@ -1,20 +1,76 @@
 // import 3rd party modules
-const validator = require("validator");
+const yargs = require("yargs");
 const chalk = require("chalk");
 
-// import own modules
-const getNotes = require("./notes");
-let msg = getNotes();
-console.log(msg);
+// Import own modules
+const notes = require("./notes");
 
-// Validate url,email
-console.log(validator.isEmail("akil.dove@gmail.com"));
-console.log(validator.isURL("https://akilan.io"));
+// changing the version
+yargs.version("1.1.0");
 
-// chalk - terminal color
-console.log(chalk.green("Success!!!"));
-console.log(chalk.red("Failed!!!"));
-console.log(chalk.bold.green("Success!!!"));
-console.log(chalk.italic.red("Failed!!!"));
-console.log(chalk.bold.inverse.green("Success!!!"));
-console.log(chalk.italic.inverse.red("Failed!!!"));
+// Notes app - add, remove, read,list
+
+// add note
+yargs.command({
+  command: "add",
+  describe: "Add a new note",
+  builder: {
+    title: {
+      describe: "Note title",
+      demandOption: true,
+      type: "string",
+    },
+    body: {
+      describe: "Describtion of note",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  handler: (argv) => {
+    notes.addNotes(argv.title, argv.body);
+  },
+});
+
+// remove note
+yargs.command({
+  command: "remove",
+  describe: "Remove a note",
+  builder: {
+    title: {
+      describe: "Remove a note",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  handler: (argv) => {
+    notes.removeNotes(argv.title);
+  },
+});
+
+// list note
+yargs.command({
+  command: "list",
+  describe: "List all notes",
+  handler: () => {
+    notes.listNotes();
+  },
+});
+
+// read a note
+yargs.command({
+  command: "read",
+  describe: "Read a note",
+  builder: {
+    title: {
+      describe: "Read a note",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  handler: (argv) => {
+    notes.readNote(argv.title);
+  },
+});
+
+yargs.parse();
+//console.log(yargs.argv);
