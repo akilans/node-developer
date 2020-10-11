@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+
+    <audio id="rainAudio">
+        <source src="/images/rain.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+
+            <div class="col-8 jumbotron main-container">
+                <h1 class="text-center">{{ title }}</h1>
+                <form class="form-inline d-flex justify-content-center" id="weatherForm">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="city" class="sr-only">City Name</label>
+                        <input type="text" class="form-control" id="city" placeholder="Enter City Name">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Get weather
+                        report</button>
+                </form>
+                <div style="display:none" class="alert alert-danger" id="weather_error" role="alert"></div>
+                <div class="row justify-content-center">
+                    <table style="display:none" class="table table-dark table-hover" id="weather_report_table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">DATE</th>
+                                <th scope="col">TEMPARATURE</th>
+                                <th scope="col">STATE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="weather_data">
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <script src="js/client.js"></script>
+
+    <!-- Optional JavaScript -->
+</body>
+
+</html>

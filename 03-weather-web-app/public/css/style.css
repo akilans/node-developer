@@ -1,0 +1,8 @@
+.main-container {
+  min-height: 80vh;
+  margin-top: 5em;
+}
+
+body {
+  background-image: url("/images/sky.jpg");
+}
